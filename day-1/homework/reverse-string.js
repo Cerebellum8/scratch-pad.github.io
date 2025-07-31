@@ -15,16 +15,21 @@
  *  a. create something to collect the output you'll return.
  *  b. you'll need a loop, which one is best? How do you know
  *     when to stop looping?
+ * // create a reverse forloop
  *  c. how do you access individual characters of a String?
+ * //use bracket notation to access individual charecters
  *  d. how do you concatenate Strings? What operator do we use?
+ * // use += operater to concate string 
  */
-
 function reverseString(input) {
   // YOUR CODE GOES BELOW HERE //
-  
-  // YOUR CODE GOES ABOVE HERE //
+let reversedString = "";
+  for (let i = input.length - 1; i >= 0; i--) {
+   reversedString += input[i]; 
+  }
+  return reversedString;
 }
-
+  // YOUR CODE GOES ABOVE HERE //} 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 if (
   typeof process !== 'undefined' &&
@@ -33,3 +38,4 @@ if (
   // here, export any references you need for tests //
   module.exports.reverseString = reverseString;
 }
+    

@@ -22,7 +22,23 @@
  *  c. you'll wanna make use of the push() method of Array.
  */
 function range(start, end) {
-  // YOUR CODE GOES BELOW HERE //
+  // YOUR CODE GOES BELOW HERE //w``` 
+  var num = [];
+
+  // Determine if the range is ascending or descending
+  if (start <= end) {
+    // Ascending range
+    for (let i = start; i <= end; i++) {
+      num.push(i);
+    }
+  } else {
+    // Descending range
+    for (let i = start; i >= end; i--) {
+      num.push(i);
+    }
+  }
+
+  return num;
   // YOUR CODE GOES ABOVE HERE //
 }
 

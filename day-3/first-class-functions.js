@@ -11,9 +11,17 @@
  * return a Function that tests whether a given value is greater than the
  * base.
  */
+/**
+ * I. string or number
+ * O. function (value and return Boolean ) 
+ * C.
+ * E. value 
+ */
 function createGreaterThanFilter(base) {
   // YOUR CODE BELOW HERE //
-
+    return function(value) {
+      return value > base;
+    };
   // YOUR CODE ABOVE HERE //
 }
 
@@ -25,7 +33,9 @@ function createGreaterThanFilter(base) {
  */
 function createLessThanFilter(base) {
   // YOUR CODE BELOW HERE //
-
+return function (value){
+  return value < base;
+};
   // YOUR CODE ABOVE HERE //
 }
 
@@ -37,7 +47,17 @@ function createLessThanFilter(base) {
  * This function needs to be case insensitive.
  */
 function createStartsWithFilter(startsWith) {
-  // YOUR CODE BELOW HERE //
+  // YOUR CODE BELOW HERE // 
+  
+  const lowerCaseStartsWith = startsWith.toLowerCase();
+
+  return function(value) {
+    if (typeof value !== 'string' || value.length === 0) {
+      return false;
+    }
+    const firstCharOfValue = value[0].toLowerCase();
+    return firstCharOfValue === lowerCaseStartsWith;
+  };
 
   // YOUR CODE ABOVE HERE //
 }
@@ -51,7 +71,19 @@ function createStartsWithFilter(startsWith) {
  */
 function createEndsWithFilter(endsWith) {
   // YOUR CODE BELOW HERE //
+  
+    const endChar = endsWith.toLowerCase();
+  
+    return function (inputString) {
+      if (typeof inputString !== 'string' || inputString.length === 0) {
+        return false;
+      }
+    
+      return inputString.slice(-1).toLowerCase() === endChar;
+    };
+  
 
+  
   // YOUR CODE ABOVE HERE //
 }
 
@@ -64,7 +96,14 @@ function createEndsWithFilter(endsWith) {
  */
 function modifyStrings(strings, modify) {
   // YOUR CODE BELOW HERE //
-
+    const result = [];
+  
+    for (let i = 0; i < strings.length; i++) {
+      result.push(modify(strings[i]));
+    }
+  
+    return result;
+  
   // YOUR CODE ABOVE HERE //
 }
 
@@ -79,7 +118,14 @@ function modifyStrings(strings, modify) {
  */
 function allStringsPass(strings, test) {
   // YOUR CODE BELOW HERE //
+    for (let i = 0; i < strings.length; i++) {
+      if (!test(strings[i])) {
+        return false; 
+      }
+    }
+    return true; 
   
+
   // YOUR CODE ABOVE HERE //
 }
 

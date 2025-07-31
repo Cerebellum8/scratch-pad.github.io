@@ -1,4 +1,4 @@
-// #!/usr/bin/env node
+ n// #!/usr/bin/env node
 
 'use strict';
 
@@ -35,23 +35,60 @@
 
 // YOUR CODE GOES BELOW HERE //
 function makeContact(id, nameFirst, nameLast) {
-  
-}
-
-function makeContactList() {
-  /*
-   * You need something here to hold contacts. See length api for a hint:
-   */
-  var contacts = [];
-
   return {
-    // we implemented the length api for you //
-
-  };
+    id: id,
+    nameFirst: nameFirst,
+    nameLast: nameLast  
+};
 }
+ 
+ 
+function makeContactList(){
+ var contacts = [];
+ return { 
+  length: function(){
+    return contacts.length;
+  },
+
+  addContact: function(contact){
+    contacts.push(contact);
+  },
+  //3. findContact takes fullName
+
+  findContact: function(fullName){
+    for (var i = 0; i < contacts.length; i++) {
+     var contact = contacts[i];
+      var contactFullName = contact.nameFirst + " " + contact.nameLast; 
+      if (contactFullName === fullName){
+        return contact;
+      } 
+    }
+    return undefined;
+    },
+ // 4 remove contact
+removeContact: function(contact){
+  var index = contacts.indexOf(contact);
+  if (index !== -1) {
+    contacts.splice(index, 1);
+  }
+},
+   
+ //5 add printAllprintAll
+
+printAllContactNames: function(){
+  var names = contacts.map(function(contact) {
+    return contact.nameFirst + " " + contact.nameLast;
+  }); 
+  return names.join("\n");
+}
+ };
+
+
+
+
 
 // YOUR CODE GOES ABOVE HERE //
-
+}
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 if (
   typeof process !== 'undefined' &&

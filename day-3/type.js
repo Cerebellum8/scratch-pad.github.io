@@ -2,6 +2,8 @@
 
 'use strict';
 
+const { isArrayLikeObject } = require("lodash");
+
 /**
  * IN CLASS EXERCISE: TYPE
  */
@@ -12,11 +14,16 @@
  * TIP: In JavaScript, how can we decipher if a value is an Array? Can typeof
  * work?
  *
+ * 
+
+
+==
  * HINT: There is a method that can help with this.
  */
 function isArray(value) {
   // YOUR CODE BELOW HERE //
-
+return Array.isArray(value);
+return value;
   // YOUR CODE ABOVE HERE //
 }
 
@@ -31,23 +38,37 @@ function isArray(value) {
  * HINT: look up how to figure out if something is an instance of the Date object.
  *
  */
+
 function isObject(value) {
   // YOUR CODE BELOW HERE //
+   
+  if (Array.isArray(value)) {
+    return false;
+  }
+  if (value === null){
+     return false;  
+  }
+  if (value instanceof Date){
+    return false;
+  }
+  return typeof value === "object";
 
-  // YOUR CODE ABOVE HERE //
+ // YOUR CODE ABOVE HERE //
+
 }
-
-/**
- * Given an input value, return true if is either an Array or an an Object
- * intended as a collection, false if otherwise.
- *
- * TIP: Similar to isObject, but we must return true if the value is an Array.
- */
 function isCollection(value) {
   // YOUR CODE BELOW HERE //
-
+  if (value === null) {
+    return false;
+  }
+  if (typeof value === 'object') {
+    return Array.isArray(value) || isObject(value);
+  }
+   return false; 
   // YOUR CODE ABOVE HERE //
+
 }
+
 
 /**
  * Given an input value, return the type of the value as a String
@@ -70,9 +91,20 @@ function isCollection(value) {
  */
 function typeOf(value) {
   // YOUR CODE BELOW HERE //
-  
+
+    if (value === null) {
+      return 'null';
+    }
+    if (Array.isArray(value)) {
+      return 'array';
+    }
+    if (value instanceof Date) {
+      return 'date'; 
+    }
+    return typeof value;
+  } 
   // YOUR CODE ABOVE HERE //
-}
+
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 if (
@@ -85,3 +117,4 @@ if (
   module.exports.isCollection = isCollection;
   module.exports.typeOf = typeOf;
 }
+
