@@ -16,7 +16,7 @@
  */
 function isArray(value) {
   // YOUR CODE BELOW HERE //
-
+return 
   // YOUR CODE ABOVE HERE //
 }
 

@@ -21,7 +21,8 @@
 
 function reverseString(input) {
   // YOUR CODE BELOW HERE //
-
+var outPut = [];
+  return reverseString; 
   // YOUR CODE ABOVE HERE //
 }
 
