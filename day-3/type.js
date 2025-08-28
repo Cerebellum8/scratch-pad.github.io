@@ -16,10 +16,11 @@
  */
 function isArray(value) {
   // YOUR CODE BELOW HERE //
-return 
+return Array.isArray(value);
+
+   
   // YOUR CODE ABOVE HERE //
 }
-
 /**
  * Given an input value, return true if the value is an Object intended as a
  * collection, false if otherwise.
@@ -36,7 +37,17 @@ return
  */
 function isObject(value) {
   // YOUR CODE BELOW HERE //
+if(typeof value === "object"){
+        return true; 
+  if(Array.isArray(value)){
+    return false;
+    if(value === null){
+      return false;
+    if(value instanceof Data){
+      return false;
   
+    }
+  }
   // YOUR CODE ABOVE HERE //
 }
 
