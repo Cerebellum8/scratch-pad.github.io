@@ -14,13 +14,14 @@
  */
 /*
 I:function with string
-O:return length of given string
+O:input string length 
 C:
 E:
 */
 // find string length
 function length(string) {
   // YOUR CODE BELOW HERE //
+  // use .length method to access length
 return string.length;
   // YOUR CODE ABOVE HERE //
 }
@@ -64,10 +65,10 @@ C:should covert all spaces to dashes
 e: empty string
 */
 function toDashCase(string) {
-  // create  variable to convert sting tolowerCase
+  // create  variable to convert string tolowerCase
+  // use .replace method to convert 
 var lowerCaseString = string.toLowerCase();
-// replace spaces with dashes
-// all occurrences
+
 var dashCaseString = lowerCaseString.replace(/\s+/g, "-");
 return dashCaseString;
   // YOUR CODE ABOVE HERE //
@@ -119,9 +120,7 @@ function beginsWith(string, char) {
  */
 function endsWith(string, char) {
   // YOUR CODE BELOW HERE //
-// Convert both the string and the character to lowercase to make the comparison case-insensitive.
-  // Access the last character of the string.
-  // Compare the lowercase versions of the last character of the string and the input character.
+
   return string.toLowerCase()[string.length - 1] === char.toLowerCase();
   // YOUR CODE ABOVE HERE //
 }
@@ -183,16 +182,17 @@ function longest(stringOne, stringTwo) {
     
  function sortAscending(stringOne, stringTwo) {
   // YOUR CODE BELOW HERE // 
-    if (stringOne === stringTwo) {
-      return 0;
-    } else if (stringOne < stringTwo) {
-      return -1;
-    } else {
+  // create if statement compare 
+    if (stringOne < stringTwo) {
       return 1;
+    } else if (stringTwo < stringOne) {
+      return -1 ;
+    } else {
+      return 0;
     }
   
   // YOUR CODE ABOVE HERE //
- };
+ }
 
 /**
  * Given two Strings, return 1 if the first is lower in alphabetical order (meaning later in the alphabet) than
@@ -203,12 +203,13 @@ function longest(stringOne, stringTwo) {
  */
 function sortDescending(stringOne, stringTwo) {
   // YOUR CODE BELOW HERE //
-    if (stringOne === stringTwo) {
-      return 0;
-    } else if (stringOne > stringTwo) {
+  // create conditional if statement 
+    if (stringOne > stringTwo) {
+      return 1;
+    } else if (stringOne < stringTwo) {
       return -1;
     } else {
-      return 1;
+      return 0;
     }
   
   // YOUR CODE ABOVE HERE //

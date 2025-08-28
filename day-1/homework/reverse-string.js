@@ -21,8 +21,13 @@
 
 function reverseString(input) {
   // YOUR CODE BELOW HERE //
-var outPut = [];
-  return reverseString; 
+  //output array  
+  // create loop 
+let reversedString = "";
+for (let i = input.length-1; i >= 0; i--){
+reversedString += input[i];
+} 
+  return reversedString; 
   // YOUR CODE ABOVE HERE //
 }
 
