@@ -22,7 +22,7 @@ return Array.isArray(value);
   // YOUR CODE ABOVE HERE //
 }
 /**
- * Given an input value, return true if the value is an Object intended as a
+ *Given an input value, return true if the value is an Object intended as a
  * collection, false if otherwise.
  *
  * TIP: In JavaScript, how can we decipher if a value is an Object, but not
@@ -31,25 +31,23 @@ return Array.isArray(value);
  *
  * HINT: look up how to figure out if something is an instance of the Date object.
  *
- * isObject({ a: 1, b: 2 }); // true
+ * isObject({ a: 1,  b: 2 }); // true
  * isObject([1, 2, 3]); // false
  * 
  */
 function isObject(value) {
   // YOUR CODE BELOW HERE //
-if(typeof value === "object"){
-        return true; 
-  if(Array.isArray(value)){
-    return false;
-    if(value === null){
-      return false;
-    if(value instanceof Data){
-      return false;
+
+  return (
+    typeof value === 'object' &&
+    value !== null &&
+    !Array.isArray(value) &&
+    !(value instanceof Date)
+  );
   
-    }
-  }
   // YOUR CODE ABOVE HERE //
-}
+};
+
 
 /**
  * Given an input value, return true if is either an Array or an an Object
@@ -59,9 +57,17 @@ if(typeof value === "object"){
  */
 function isCollection(value) {
   // YOUR CODE BELOW HERE //
-
+  return (
+    typeof value === 'object' &&
+    value !== null &&
+    !Array.isArray(value) &&
+    !(value instanceof Date) &&
+    !(value instanceof RegExp)
+  ) || Array.isArray(value);
   // YOUR CODE ABOVE HERE //
 }
+ 
+
 
 /**
  * Given an input value, return the type of the value as a String
@@ -84,7 +90,15 @@ function isCollection(value) {
  */
 function typeOf(value) {
   // YOUR CODE BELOW HERE //
-  
+  if (value === null) {
+    return "null";
+  } else if (Array.isArray(value)) {
+    return "array";
+  } else if (value instanceof Date) {
+    return "date";
+  } else {
+    return typeof value;
+  }
   // YOUR CODE ABOVE HERE //
 }
 

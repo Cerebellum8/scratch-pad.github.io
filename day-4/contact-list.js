@@ -35,6 +35,9 @@
 
 function makeContact(id, nameFirst, nameLast) {
   // Solve this function first
+  return contact {
+    id: 
+  }
 }
 
 function makeContactList() {

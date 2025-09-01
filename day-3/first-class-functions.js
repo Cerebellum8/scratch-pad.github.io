@@ -8,12 +8,14 @@
 
 /**
  * Given an input base to test against, which could be a String or Number,
- * return a Function that tests whether a given value is greater than the
+ * retuU72rn a Function that tests whether a given value is greater than the
  * base.
  */
 function createGreaterThanFilter(base) {
   // YOUR CODE BELOW HERE //
-  
+  return function(value){
+    return value > base;
+  };
   // YOUR CODE ABOVE HERE //
 }
 
@@ -25,11 +27,13 @@ function createGreaterThanFilter(base) {
  */
 function createLessThanFilter(base) {
   // YOUR CODE BELOW HERE //
-  
+  return function(value){
+    return value < base ;
+  };
   // YOUR CODE ABOVE HERE //
 }
 
-/**
+/*
  * Given a startsWith character, which will be a single character, return a
  * Function that tests whether a given String starts with the startsWith
  * character.
@@ -38,7 +42,9 @@ function createLessThanFilter(base) {
  */
 function createStartsWithFilter(startsWith) {
   // YOUR CODE BELOW HERE //
-
+return function(value) {
+  return value.charAt(0).toLowerCase() === startsWith.toLowerCase(0);
+};
   // YOUR CODE ABOVE HERE //
 }
 
@@ -51,7 +57,9 @@ function createStartsWithFilter(startsWith) {
  */
 function createEndsWithFilter(endsWith) {
   // YOUR CODE BELOW HERE //
-
+return function(value){
+  return value.charAt(value.length-1).toLowerCase() === endsWith.toLowerCase();
+};
   // YOUR CODE ABOVE HERE //
 }
 
@@ -72,7 +80,11 @@ function createEndsWithFilter(endsWith) {
  */
 function modifyStrings(strings, modify) {
   // YOUR CODE BELOW HERE //
-
+const newStrings = [];
+for (let i = 0; i < strings.length; i++){
+  newStrings.push(modify(strings[i]));
+}
+return newStrings;
   // YOUR CODE ABOVE HERE //
 }
 
@@ -98,7 +110,12 @@ function modifyStrings(strings, modify) {
 
 function allStringsPass(strings, test) {
   // YOUR CODE BELOW HERE //
-
+for (let i = 0; i < strings.length; i++) {
+if (!test(strings[i])){
+  return false;
+}
+}
+return true;
   // YOUR CODE ABOVE HERE //
 }
 
