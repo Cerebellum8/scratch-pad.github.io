@@ -2,6 +2,8 @@
 
 'use strict';
 
+const { result, kebabCase } = require("lodash");
+
 /**
  * 3: range()
  *
@@ -23,7 +25,20 @@
  */
 function range(start, end) {
   // YOUR CODE BELOW HERE //
-
+  //empty array
+  //check if start is less than or equAL TO END
+  //otherwise loop down from start to end 
+const result = [];
+if (start <= end){
+for (let i = start; i <= end; i++) {
+  result.push(i);
+ }
+} else { 
+  for (let i = start; i >= end; i--) {
+    result.push(i);
+    }
+  }
+  return result;
   // YOUR CODE ABOVE HERE //
 }
 

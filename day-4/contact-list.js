@@ -35,9 +35,11 @@
 
 function makeContact(id, nameFirst, nameLast) {
   // Solve this function first
-  return contact {
-    id: 
-  }
+  return  {
+    id: id,
+    nameFirst: nameFirst,
+    nameLast: nameLast,
+  };
 }
 
 function makeContactList() {
@@ -51,7 +53,37 @@ function makeContactList() {
     length: function(){
       return contacts.length;
     },
-  }
+    addContact: function (contact){
+      contacts.push(contact);
+    },
+    findContact: function (fullName){
+      for (let i = 0; i < contacts.length; i++){
+        const contact = contacts[i];
+        const contactFullName = contact.nameFirst + " " + contact.nameLast;
+        if (contactFullName === fullName){
+          return contact;
+        }
+      }
+      return undefined;
+    },
+    removeContact: function(contact){
+      for (let i = 0; i < contacts.length; i++){
+        if (contacts[i] === contact){
+          contacts.splice(i, 1);
+         return;
+        }
+      }
+    
+    },
+    printAllContactNames: function(){
+      const fullNames = []
+      for (let i = 0; i < contacts.length; i++){
+     fullNames.push(contacts[i].nameFirst + " " + contacts[i].nameLast);   
+      }
+      return fullNames.join("\n");
+    
+    }
+};
 }
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
